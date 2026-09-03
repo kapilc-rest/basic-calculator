@@ -17,7 +17,7 @@ function divide(a,b) {
 let operand, operation, operand2;
 
 function operate(num1, operator, num2) {
-    show.innerHTMLt = " ";
+    show.innerHTML = " ";
     switch (operator) {
         case '+' :
             return add(num1, num2);
