@@ -129,17 +129,22 @@ operators.forEach( operator => {
             show.textContent = operation;
             numIndex = 1;
             optIndex = 1;
-        } else{
+        } else if(optIndex == 1 && operand2 !== ""){
             if( result == ""){
                 operand1 = operate(+operand1, operation, +operand2);
-            } else operand1 = result;
-            result = "";
-            operand2="";
+            } else {
+                operand1 = result;
+                result = "";
+                operand2="";
+            }
             show.textContent = operand1;
             operation = operator.textContent;
             optIndex = 1;
             numIndex = 1;
-    }console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)})
+    } else if(optIndex == 1 && operand2 == "") {
+        operation;
+    }
+    console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)})
 });
 
 clear.addEventListener("click", () => {clearing()
