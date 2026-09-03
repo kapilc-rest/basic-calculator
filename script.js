@@ -156,13 +156,24 @@ function clearing() {
 }
 
 equal.addEventListener("click", () => {
-    if(operand2 !== "") {
+    if(operation != "" && operand2 !== "") {
         result = operate(+operand1, operation, +operand2);
         show.textContent = result;
         console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
-    } else {
-        result = operate(+operand1, operation, +operand1)
-        show.textContent = result;
+    } else if (operand2 == "") {
+        if(operation == "") {
+            if(result !== "") {
+                operation = "";
+            } else operation;
+
+        } else {
+            result = operate(+operand1, operation, +operand1)
+            show.textContent = result;
+            operand1 = result;
+            result = "";
+            operation="";
+            optIndex = 0;
+        }
         console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
     }
 })
