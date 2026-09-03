@@ -35,17 +35,26 @@ function operate(num1, operator, num2) {
 
 const show = document.querySelector("#show");
 
+let arr = [], obj = {};
+
 const numbers = document.querySelectorAll("button.number");
 numbers.forEach( number => { 
-    number.addEventListener("click",() => show.textContent += number.textContent)
+    number.addEventListener("click",() => {
+        show.textContent += number.textContent;
+        arr.push(number.textContent);
+    })
 });
 
 const operators = document.querySelectorAll("button.operator");
 operators.forEach( operator => {
-    operator.addEventListener("click", 
-        () => show.textContent += `${operator.textContent}`
-    )
+    operator.addEventListener("click", () => {
+        show.textContent += `${operator.textContent}`
+        arr.push(operator.textContent);
+    })
 })
 
 const equal = document.querySelector("#equal");
-equal.addEventListener("click", () => operate(obj[1], obj[2], obj[3]))
+equal.addEventListener("click", () => {
+    console.log(arr);
+    operate(obj[1], obj[2], obj[3])
+});
