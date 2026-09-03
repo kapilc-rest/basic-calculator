@@ -14,7 +14,7 @@ function divide(a,b) {
     return b === 0 ? "nope" : (a/b);
 }
 
-let operand1, operation, operand2;
+let operand, operation, operand2;
 
 function operate(num1, operator, num2) {
     switch (operator) {
@@ -32,3 +32,9 @@ function operate(num1, operator, num2) {
             break;
     }
 }
+
+let numbers = document.querySelectorAll("button.number");
+// console.log(numbers);
+numbers.forEach( number => { 
+    number.addEventListener("click",() => console.log(number.textContent))
+});
