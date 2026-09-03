@@ -11,7 +11,7 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
-    return b === 0 ? "nope" : (a/b);
+    return b === 0 ? NaN : (a/b);
 }
 
 let operand1="", operation="", operand2="", result = "";
@@ -132,11 +132,9 @@ operators.forEach( operator => {
         } else if(optIndex == 1 && operand2 !== ""){
             if( result == ""){
                 operand1 = operate(+operand1, operation, +operand2);
-            } else {
-                operand1 = result;
+            } else operand1 = result;
                 result = "";
                 operand2="";
-            }
             show.textContent = operand1;
             operation = operator.textContent;
             optIndex = 1;
