@@ -71,7 +71,7 @@ operators.forEach( operator => {
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", () => {
     console.log(obj);
-    show.textConent = operate(+obj[0], obj[1], +obj[2]);
+    show.textContent = operate(+obj[0], obj[1], +obj[2]);
 });
 
 const clear = document.querySelector("#clear");
