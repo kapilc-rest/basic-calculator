@@ -38,12 +38,12 @@ const numbers = document.querySelectorAll("button.number");
 numbers.forEach( number => { 
     number.addEventListener("click",() => {
         enable(operators);
-        // console.log(obj[index]);
-        if(!(index in obj)){obj[index] = "";}
-        // console.log(`${index} = ${obj[index]}`);
-        show.textContent = number.textContent;
+        if(!(index in obj)){
+            obj[index] = "";
+            show.textContent = "";
+        }
+        show.textContent += number.textContent;
         obj[index] += number.textContent;
-        // console.log(`${index} = ${obj[index]}`);
     })
 });
 
@@ -61,7 +61,7 @@ const operators = document.querySelectorAll("button.operator");
 operators.forEach( operator => {
     operator.addEventListener("click", () => {
         index++;
-        show.textContent += `${operator.textContent}`
+        show.textContent = `${operator.textContent}`
         obj[index] = operator.textContent;
         disable(operators);
         index++;
