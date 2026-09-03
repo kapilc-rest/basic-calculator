@@ -14,7 +14,7 @@ function divide(a,b) {
     return b === 0 ? "nope" : (a/b);
 }
 
-let operand1="", operation="", operand2="";
+let operand1="", operation="", operand2="", result = "";
 
 function operate(num1, operator, num2) {
     show.innerHTML = " ";
@@ -99,6 +99,9 @@ let numIndex = 0, optIndex = 0;
 
 numbers.forEach(number => {
     number.addEventListener("click", () => {
+        if(result !== "") {
+            clearing();
+        }
         if(numIndex === 0) {
             show.textContent = "";
             operand1 += number.textContent;
@@ -107,12 +110,15 @@ numbers.forEach(number => {
             operand2 += number.textContent;
             show.textContent = operand2;
         }
-        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2}`)
+        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
     })
 });
 
 operators.forEach( operator => {
     operator.addEventListener("click", () =>{
+        if(result !== "") {
+            optIndex = 1;
+        }
         if (optIndex === 0 && operand1 == ""){
                 operand1 = 0;
                 numIndex = 1;
@@ -124,18 +130,32 @@ operators.forEach( operator => {
             numIndex = 1;
             optIndex = 1;
         } else{
-            operand1 = operate(+operand1, operation, +operand2);
+            if( result == ""){
+                operand1 = operate(+operand1, operation, +operand2);
+            } else operand1 = result;
+            result = "";
             operand2="";
             show.textContent = operand1;
             operation = operator.textContent;
             optIndex = 1;
             numIndex = 1;
-    }console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2}`)})
+    }console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)})
 });
 
-clear.addEventListener("click", () => {
-    operand1 = ""; operand2 = ""; operation = "";
+clear.addEventListener("click", () => {clearing()
+    console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
+})
+
+function clearing() {
+    operand1 = ""; operand2 = ""; operation = ""; result = "";
     optIndex = 0; numIndex = 0;
     show.innerHTML = "";
-    console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2}`)
+}
+
+equal.addEventListener("click", () => {
+    if(operand2 !== "") {
+        result = operate(+operand1, operation, +operand2);
+        show.textContent = result;
+        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
+    }
 })
