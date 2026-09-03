@@ -11,7 +11,7 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
-    return b === 0 ? NaN : (a/b).toFixed(3);
+    return b === 0 ? NaN : Math.round((a/b)*1000)/1000;
 }
 
 let operand1="", operation="", operand2="", result = "";
@@ -58,7 +58,7 @@ operators.forEach( operator => {
         if(result !== "") {
             optIndex = 1;
         }
-        if (optIndex === 0 && operand1 == ""){
+        if (optIndex === 0 && operand1 === ""){
                 operand1 = 0;
                 numIndex = 1;
                 optIndex = 1;
@@ -68,8 +68,8 @@ operators.forEach( operator => {
             show.textContent = operation;
             numIndex = 1;
             optIndex = 1;
-        } else if(optIndex == 1 && operand2 !== ""){
-            if( result == ""){
+        } else if(optIndex === 1 && operand2 !== ""){
+            if( result === ""){
                 operand1 = operate(+operand1, operation, +operand2);
             } else operand1 = result;
                 result = "";
@@ -78,8 +78,6 @@ operators.forEach( operator => {
             operation = operator.textContent;
             optIndex = 1;
             numIndex = 1;
-    } else if(optIndex == 1 && operand2 == "") {
-        operation;
     }
     console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)})
 });
@@ -91,16 +89,16 @@ clear.addEventListener("click", () => {clearing()
 function clearing() {
     operand1 = ""; operand2 = ""; operation = ""; result = "";
     optIndex = 0; numIndex = 0;
-    show.innerHTML = "";
+    show.textContent = "";
 }
 
 equal.addEventListener("click", () => {
-    if(operation != "" && operand2 !== "") {
+    if(operation !== "" && operand2 !== "") {
         result = operate(+operand1, operation, +operand2);
         show.textContent = result;
         console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
-    } else if (operand2 == "") {
-        if(operation == "") {
+    } else if (operand2 === "") {
+        if(operation === "") {
             if(result !== "") {
                 operation = "";
             } else operation;
