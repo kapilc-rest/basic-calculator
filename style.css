@@ -1,6 +1,30 @@
+#calculator {
+    display: flex;
+    flex-direction: row;
+    width: 150px;
+    height: 180px;
+}
+
 button {
     margin: 0px;
     padding: 8px;
     border: 0px;
     background-color: white;
+}
+
+#non-zero-numbers {
+    display: flex;
+    flex-wrap: wrap;
+    min-width: 120px;
+}
+
+#non-zero-numbers .number {
+    width: 40px;
+}
+
+#inputs {
+    display: flex;
+    flex-direction: column;
+    min-height: 150px;
+    flex: auto;
 }
