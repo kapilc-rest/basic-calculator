@@ -95,16 +95,18 @@ const operators = document.querySelectorAll("button.operator");
 const equal = document.querySelector("button.equal");
 const clear = document.querySelector("button.clear");
 const show = document.querySelector("#show");
+let numIndex = 0;
 
 numbers.forEach(number => {
     number.addEventListener("click", () => {
-        operand1 === "" ? operand1 = number : operand2 = number;
+        numIndex === 0 ? operand1 += number : operand2 += number;
         show.textContent += number.textContent;
     })
 });
 
 operators.forEach( operator => {
     operator.addEventListener("click", () =>{
+        numIndex = 1;
         operand1 === "" ? operation = "" : operation = operator;
         operation !== "" ? show.textContent = operate(operand1, operation,operand2) : 0;
     })
