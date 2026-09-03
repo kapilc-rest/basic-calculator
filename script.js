@@ -17,6 +17,7 @@ function divide(a,b) {
 let operand, operation, operand2;
 
 function operate(num1, operator, num2) {
+    show.innerHTMLt = " ";
     switch (operator) {
         case '+' :
             return add(num1, num2);
@@ -35,26 +36,32 @@ function operate(num1, operator, num2) {
 
 const show = document.querySelector("#show");
 
-let arr = [], obj = {};
+let arr = [], obj = {}, index = 0;
 
 const numbers = document.querySelectorAll("button.number");
 numbers.forEach( number => { 
     number.addEventListener("click",() => {
+        // console.log(obj[index]);
+        if(!(index in obj)){obj[index] = "";}
+        // console.log(`${index} = ${obj[index]}`);
         show.textContent += number.textContent;
-        arr.push(number.textContent);
+        obj[index] += number.textContent;
+        // console.log(`${index} = ${obj[index]}`);
     })
 });
 
 const operators = document.querySelectorAll("button.operator");
 operators.forEach( operator => {
     operator.addEventListener("click", () => {
+        index++;
         show.textContent += `${operator.textContent}`
-        arr.push(operator.textContent);
+        obj[index] = operator.textContent;
+        index++;
     })
 })
 
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", () => {
-    console.log(arr);
-    operate(obj[1], obj[2], obj[3])
+    console.log(obj);
+    show.textContent = operate(+obj[0], obj[1], +obj[2]);
 });
