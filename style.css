@@ -1,8 +1,8 @@
 #calculator {
     display: flex;
     flex-direction: column;
-    width: 150px;
-    height: 180px;
+    width: 20rem;
+    height: 24rem;
     box-sizing: content-box;
     border: 2px solid black;
 }
@@ -10,13 +10,13 @@
 #show {
     text-align: right;
     margin-top: auto;
-    width: 150px;
-    height:60px;
+    width: 20rem;
+    height: 8rem;
 }
 
 button {
     margin: 0px;
-    padding: 8px;
+    padding: 1rem;
     border: 0px;
     background-color: white;
 }
@@ -24,18 +24,19 @@ button {
 #non-zero-numbers {
     display: flex;
     flex-wrap: wrap;
-    min-width: 120px;
+    width: 15rem;
 }
 
-#non-zero-numbers .number, #special-sign .sign {
-    width: 40px;
-    height: 30px;
+#non-zero-numbers .number, #special-sign .sign, .operator {
+    width: 5rem;
+    height: 4rem;
+    border: 1px solid black;
 }
 
 #inputs {
     display: flex;
-    height: 120px;
-    width: 120px;
+    height: 16rem;
+    width: 16rem;
     flex: auto;
 }
 
