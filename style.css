@@ -8,17 +8,22 @@
 }
 
 #show {
-    text-align: right;
-    margin-top: auto;
-    width: 20rem;
+    max-width: 20rem;
     height: 8rem;
+    display: flex;
+    box-sizing: content-box;
+    background-color: palegreen;
+    justify-content: end;
+    align-items: end;
+    padding: 1rem;
+    flex-wrap: wrap;
 }
 
 button {
     margin: 0px;
     padding: 1rem;
     border: 0px;
-    background-color: white;
+    background-color: skyblue;
 }
 
 #non-zero-numbers {
@@ -35,8 +40,6 @@ button {
 
 #inputs {
     display: flex;
-    height: 16rem;
-    width: 16rem;
     flex: auto;
 }
 
