@@ -99,7 +99,7 @@ let numIndex = 0;
 
 numbers.forEach(number => {
     number.addEventListener("click", () => {
-        numIndex === 0 ? operand1 += number : operand2 += number;
+        numIndex === 0 ? operand1 += number.textContent : operand2 += number.textContent;
         show.textContent += number.textContent;
     })
 });
@@ -107,7 +107,7 @@ numbers.forEach(number => {
 operators.forEach( operator => {
     operator.addEventListener("click", () =>{
         numIndex = 1;
-        operand1 === "" ? operation = "" : operation = operator;
-        operation !== "" ? show.textContent = operate(operand1, operation,operand2) : 0;
+        operand1 === "" ? operation = "" : operation = operator.textContent;
+        operation !== "" ? show.textContent = operate(operand1, operation,operand2) : operation = operator.textContent;
     })
 });
