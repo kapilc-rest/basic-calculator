@@ -157,5 +157,9 @@ equal.addEventListener("click", () => {
         result = operate(+operand1, operation, +operand2);
         show.textContent = result;
         console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
+    } else {
+        result = operate(+operand1, operation, +operand1)
+        show.textContent = result;
+        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
     }
 })
