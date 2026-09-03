@@ -36,7 +36,7 @@ function operate(num1, operator, num2) {
 
 const show = document.querySelector("#show");
 
-let arr = [], obj = {}, index = 0;
+let obj = {}, index = 0;
 
 const numbers = document.querySelectorAll("button.number");
 numbers.forEach( number => { 
@@ -50,12 +50,19 @@ numbers.forEach( number => {
     })
 });
 
+const listOperator = [ '+', '-', '*', '/'];
+
+function disable(list) {
+    list.forEach(item => { item.disabled = true});
+}
+
 const operators = document.querySelectorAll("button.operator");
 operators.forEach( operator => {
     operator.addEventListener("click", () => {
         index++;
         show.textContent += `${operator.textContent}`
         obj[index] = operator.textContent;
+        disable(operators);
         index++;
     })
 })
