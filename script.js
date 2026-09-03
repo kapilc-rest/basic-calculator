@@ -41,6 +41,7 @@ let obj = {}, index = 0;
 const numbers = document.querySelectorAll("button.number");
 numbers.forEach( number => { 
     number.addEventListener("click",() => {
+        enable(operators);
         // console.log(obj[index]);
         if(!(index in obj)){obj[index] = "";}
         // console.log(`${index} = ${obj[index]}`);
@@ -54,6 +55,10 @@ const listOperator = [ '+', '-', '*', '/'];
 
 function disable(list) {
     list.forEach(item => { item.disabled = true});
+}
+
+function enable(list) {
+    list.forEach(item => item.disabled = false);
 }
 
 const operators = document.querySelectorAll("button.operator");
