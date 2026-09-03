@@ -43,6 +43,9 @@ numbers.forEach( number => {
 const operators = document.querySelectorAll("button.operator");
 operators.forEach( operator => {
     operator.addEventListener("click", 
-        () => show.textContent += operator.textContent
+        () => show.textContent += `${operator.textContent}`
     )
 })
+
+const equal = document.querySelector("#equal");
+equal.addEventListener("click", () => operate(obj[1], obj[2], obj[3]))
