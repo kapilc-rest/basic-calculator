@@ -1,6 +1,6 @@
 #calculator {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     width: 150px;
     height: 180px;
 }
@@ -18,13 +18,22 @@ button {
     min-width: 120px;
 }
 
-#non-zero-numbers .number {
+#non-zero-numbers .number, #special-sign .sign {
     width: 40px;
 }
 
 #inputs {
     display: flex;
-    flex-direction: column;
     min-height: 150px;
+    width: 120px;
     flex: auto;
+}
+
+#number-sign {
+    display: flex;
+    flex-direction: column;
+}
+
+#special-sign {
+    display: flex;
 }
