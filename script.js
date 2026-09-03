@@ -11,7 +11,7 @@ function multiply(a,b) {
 }
 
 function divide(a,b) {
-    return b === 0 ? NaN : (a/b);
+    return b === 0 ? NaN : (a/b).toFixed(3);
 }
 
 let operand1="", operation="", operand2="", result = "";
