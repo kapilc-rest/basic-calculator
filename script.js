@@ -39,3 +39,10 @@ const numbers = document.querySelectorAll("button.number");
 numbers.forEach( number => { 
     number.addEventListener("click",() => show.textContent += number.textContent)
 });
+
+const operators = document.querySelectorAll("button.operator");
+operators.forEach( operator => {
+    operator.addEventListener("click", 
+        () => show.textContent += operator.textContent
+    )
+})
