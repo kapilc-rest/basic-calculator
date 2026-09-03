@@ -92,8 +92,8 @@ function operate(num1, operator, num2) {
 
 const numbers = document.querySelectorAll("button.number");
 const operators = document.querySelectorAll("button.operator");
-const equal = document.querySelector("button.equal");
-const clear = document.querySelector("button.clear");
+const equal = document.querySelector("button#equal");
+const clear = document.querySelector("#clear");
 const show = document.querySelector("#show");
 let numIndex = 0, optIndex = 0;
 
@@ -132,3 +132,10 @@ operators.forEach( operator => {
             numIndex = 1;
     }console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2}`)})
 });
+
+clear.addEventListener("click", () => {
+    operand1 = ""; operand2 = ""; operation = "";
+    optIndex = 0; numIndex = 0;
+    show.innerHTML = "";
+    console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2}`)
+})
