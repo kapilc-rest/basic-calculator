@@ -49,7 +49,7 @@ numbers.forEach(number => {
             operand2 += number.textContent;
             show.textContent = operand2;
         }
-        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
+        show.textContent = `${operand1} ${operation} ${operand2}`;
     })
 });
 
@@ -63,27 +63,30 @@ operators.forEach( operator => {
                 numIndex = 1;
                 optIndex = 1;
                 operation = operator.textContent;
+                show.textContent = `${operand1} ${operation} ${operand2}`
         } else if(optIndex !== 1) {
             operation = operator.textContent;
-            show.textContent = operation;
+            show.textContent = `${operand1} ${operation} ${operand2}`;
             numIndex = 1;
             optIndex = 1;
         } else if(optIndex === 1 && operand2 !== ""){
             if( result === ""){
                 operand1 = operate(+operand1, operation, +operand2);
+
             } else operand1 = result;
                 result = "";
                 operand2="";
             show.textContent = operand1;
             operation = operator.textContent;
+            show.textContent = `${operand1} ${operation} ${operand2}`
             optIndex = 1;
             numIndex = 1;
     }
-    console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)})
+    })
 });
 
-clear.addEventListener("click", () => {clearing()
-    console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
+clear.addEventListener("click", () => {
+    clearing()
 })
 
 function clearing() {
@@ -96,7 +99,7 @@ equal.addEventListener("click", () => {
     if(operation !== "" && operand2 !== "") {
         result = operate(+operand1, operation, +operand2);
         show.textContent = result;
-        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
+        show.textContent = `${result}`;
     } else if (operand2 === "") {
         if(operation === "") {
             if(result !== "") {
@@ -111,6 +114,5 @@ equal.addEventListener("click", () => {
             operation="";
             optIndex = 0;
         }
-        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2} result = ${result}`)
     }
 })
