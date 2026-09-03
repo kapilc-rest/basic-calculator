@@ -107,6 +107,7 @@ numbers.forEach(number => {
             operand2 += number.textContent;
             show.textContent = operand2;
         }
+        console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2}`)
     })
 });
 
@@ -121,11 +122,13 @@ operators.forEach( operator => {
             operation = operator.textContent;
             show.textContent = operation;
             numIndex = 1;
-        } else {
+            optIndex = 1;
+        } else{
             operand1 = operate(+operand1, operation, +operand2);
+            operand2="";
             show.textContent = operand1;
             operation = operator.textContent;
             optIndex = 1;
             numIndex = 1;
-    }})
+    }console.log(`operand1 = ${operand1}, operator = ${operation} operand2 = ${operand2}`)})
 });
