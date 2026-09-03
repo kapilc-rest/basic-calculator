@@ -21,16 +21,12 @@ function operate(num1, operator, num2) {
     switch (operator) {
         case '+' :
             return add(num1, num2);
-            break;
         case '-' :
             return subtract(num1, num2);
-            break;
         case '*' :
             return multiply(num1, num2);
-            break;
         case '/' : 
             return divide(num1, num2);
-            break;
     }
 }
 
@@ -45,7 +41,7 @@ numbers.forEach( number => {
         // console.log(obj[index]);
         if(!(index in obj)){obj[index] = "";}
         // console.log(`${index} = ${obj[index]}`);
-        show.textContent += number.textContent;
+        show.textContent = number.textContent;
         obj[index] += number.textContent;
         // console.log(`${index} = ${obj[index]}`);
     })
@@ -75,5 +71,14 @@ operators.forEach( operator => {
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", () => {
     console.log(obj);
-    show.textContent = operate(+obj[0], obj[1], +obj[2]);
+    show.textConent = operate(+obj[0], obj[1], +obj[2]);
 });
+
+const clear = document.querySelector("#clear");
+clear.addEventListener("click", () => {
+    show.innerHTML = "";
+    enable(operators);
+    obj={};
+    index = 0;
+    console.log(obj);
+})
