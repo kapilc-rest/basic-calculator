@@ -72,11 +72,9 @@ operators.forEach( operator => {
         } else if(optIndex === 1 && operand2 !== ""){
             if( result === ""){
                 operand1 = operate(+operand1, operation, +operand2);
-
             } else operand1 = result;
                 result = "";
                 operand2="";
-            show.textContent = operand1;
             operation = operator.textContent;
             show.textContent = `${operand1} ${operation} ${operand2}`
             optIndex = 1;
@@ -98,7 +96,6 @@ function clearing() {
 equal.addEventListener("click", () => {
     if(operation !== "" && operand2 !== "") {
         result = operate(+operand1, operation, +operand2);
-        show.textContent = result;
         show.textContent = `${result}`;
     } else if (operand2 === "") {
         if(operation === "") {
